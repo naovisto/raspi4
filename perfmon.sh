@@ -7,6 +7,7 @@ EVENTBREAK="#####"
 cat /proc/meminfo | grep -E 'MemTotal|MemFree|MemAvailable' | awk '{$2=$2};1'
 
 # Needs netstat installed (sudo apt-get install net-tools)
-netstat -i | grep eth0 | awk '{$2=$2};1'
+# taken out as of 5/5/2020 as it's giving a sum
+# netstat -i | grep eth0 | awk '{$2=$2};1'
 
 echo $EVENTBREAK
