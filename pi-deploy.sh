@@ -10,6 +10,7 @@ oldusername=
 newusername=
 newpassword=
 newrootpassword=
+hostname=
 networkinterface=eth0
 staticipaddress=
 routerip=
@@ -33,7 +34,10 @@ sudo echo "America/New York" > /etc/timezone
 sudo dpkg-reconfigure -f noninteractive tzdata
 sudo sed -i '/ftp.uk.debian.org/s/uk/us/g' /etc/apt/sources.list
 
-## Networking #####
+## Networking ##
+
+# Change hostname
+hostnamectl set-hostname $hostname
 
 # Set a static IP
 printf "\n\nInterface $networkinterface\nStatic ip_address=$ipaddress\nStatic routers=$routerip\nStatic domain_name_servers=$dnsserver\n" >> /etc/dhcpcd.conf
